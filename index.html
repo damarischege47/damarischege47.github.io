@@ -12,61 +12,192 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			details { margin: 1em 0; border: 1px solid #ddd; border-radius: 4px; }
-			summary { padding: 1em; cursor: pointer; font-weight: bold; background: #f8f9fa; border-bottom: 1px solid #ddd; }
-			.project-story { padding: 1em; }
-			.project-story h3 { margin-top: 1em; color: #333; }
-			.project-story h3:first-child { margin-top: 0; }
-			.project-story ul { margin: 0.5em 0; padding-left: 1.5em; }
-
+			details {
+				margin: 1em 0;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+			}
+			summary {
+				padding: 1em;
+				cursor: pointer;
+				font-weight: bold;
+				background: #f8f9fa;
+				border-bottom: 1px solid #ddd;
+			}
+			.project-story {
+				padding: 1em;
+			}
+			.project-story h3 {
+				margin-top: 1em;
+				color: #333;
+			}
+			.project-story h3:first-child {
+				margin-top: 0;
+			}
+			.project-story ul {
+				margin: 0.5em 0;
+				padding-left: 1.5em;
+			}
+			/* Posts Alignment Fix */
+			.posts article {
+				margin-bottom: 2em; /* Consistent spacing between projects */
+			}
+			.posts article p {
+				margin: 1em 0; /* Consistent paragraph spacing */
+			}
+			.posts .image.fit {
+				text-align: center; /* Center images for better alignment */
+			}
 			/* Testimonials Styles */
-			#testimonials { padding: 4em 0; background: #f8f9fa; }
-			#testimonials h2 { text-align: center; margin-bottom: 3em; color: #333; }
-			.testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2em; max-width: 1200px; margin: 0 auto; }
-			.testimonial { background: white; padding: 2em; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; position: relative; }
-			.testimonial::before { content: '"'; font-size: 4em; color: #007acc; position: absolute; top: -0.5em; left: 50%; transform: translateX(-50%); font-family: serif; }
-			.testimonial p { font-style: italic; margin-bottom: 1.5em; line-height: 1.6; }
-			.testimonial-author { display: flex; align-items: center; justify-content: center; gap: 1em; font-weight: bold; color: #555; }
-			.testimonial-avatar { width: 50px; height: 50px; border-radius: 50%; background: #ddd; object-fit: cover; }
-			.testimonial-role { font-size: 0.9em; font-weight: normal; color: #888; }
-
+			#testimonials {
+				padding: 4em 0;
+				background: #f8f9fa;
+				scroll-margin-top: 120px; /* For header offset */
+			}
+			#testimonials h2 {
+				text-align: center;
+				margin-bottom: 3em;
+				color: #333;
+			}
+			.testimonial-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2em;
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+			.testimonial {
+				background: white;
+				padding: 2em;
+				border-radius: 8px;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+				text-align: center;
+				position: relative;
+			}
+			.testimonial::before {
+				content: '"';
+				font-size: 4em;
+				color: #007acc;
+				position: absolute;
+				top: -0.5em;
+				left: 50%;
+				transform: translateX(-50%);
+				font-family: serif;
+			}
+			.testimonial p {
+				font-style: italic;
+				margin-bottom: 1.5em;
+				line-height: 1.6;
+			}
+			.testimonial-author {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 1em;
+				font-weight: bold;
+				color: #555;
+			}
+			.testimonial-avatar {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background: #ddd;
+				object-fit: cover;
+			}
+			.testimonial-role {
+				font-size: 0.9em;
+				font-weight: normal;
+				color: #888;
+			}
 			/* Testimonial Form Styles */
-			.testimonial-form { max-width: 600px; margin: 3em auto 0; padding: 2em; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-			.testimonial-form h3 { text-align: center; margin-bottom: 1.5em; color: #333; }
-			.testimonial-form label { display: block; margin-bottom: 0.5em; font-weight: bold; color: #555; }
-			.testimonial-form input, .testimonial-form textarea, .testimonial-form select { width: 100%; padding: 0.8em; margin-bottom: 1em; border: 1px solid #ddd; border-radius: 4px; font-size: 1em; }
-			.testimonial-form textarea { height: 150px; resize: vertical; }
-			.testimonial-form button { display: block; width: 100%; padding: 1em; background: #007acc; color: white; border: none; border-radius: 4px; font-size: 1em; cursor: pointer; transition: background 0.3s; }
-			.testimonial-form button:hover { background: #005f99; }
-
-			/* Placeholder for Empty Testimonials */
-			.testimonial-placeholder { text-align: center; color: #555; font-style: italic; margin-bottom: 2em; }
-
-			/* Footer Contact Styles */
-			.split.contact { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2em; max-width: 1200px; margin: 0 auto; }
-			.split.contact section { flex: 1; min-width: 200px; text-align: left; padding: 1em; }
-			.split.contact h3 { font-size: 1.2em; margin-bottom: 0.5em; color: #333; }
-			.split.contact p, .split.contact ul { margin: 0; font-size: 1em; color: #555; }
-			.split.contact p a { color: #007acc; text-decoration: none; }
-			.split.contact p a:hover { text-decoration: underline; }
-			.split.contact .icons.alt { display: flex; gap: 1em; justify-content: flex-start; padding: 0; list-style: none; }
-			.split.contact .icons.alt li { margin: 0; }
-			.split.contact .icons.alt a { font-size: 1.5em; color: #007acc; transition: color 0.3s; }
-			.split.contact .icons.alt a:hover { color: #005f99; }
-
-			/* Intro Styles */
-			#intro p { font-size: 1.1em; line-height: 1.6; max-width: 800px; margin: 0 auto 1em; color: #555; }
+			.testimonial-form {
+				max-width: 600px;
+				margin: 3em auto 0;
+				padding: 2em;
+				background: white;
+				border-radius: 8px;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			}
+			.testimonial-form h3 {
+				text-align: center;
+				margin-bottom: 1.5em;
+				color: #333;
+			}
+			.testimonial-form label {
+				display: block;
+				margin-bottom: 0.5em;
+				font-weight: bold;
+				color: #555;
+			}
+			.testimonial-form input,
+			.testimonial-form textarea {
+				width: 100%;
+				padding: 0.8em;
+				margin-bottom: 1em;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+				font-size: 1em;
+			}
+			.testimonial-form textarea {
+				height: 150px;
+				resize: vertical;
+			}
+			.testimonial-form button {
+				display: block;
+				width: 100%;
+				padding: 1em;
+				background: #007acc;
+				color: white;
+				border: none;
+				border-radius: 4px;
+				font-size: 1em;
+				cursor: pointer;
+				transition: background 0.3s;
+			}
+			.testimonial-form button:hover {
+				background: #005f99;
+			}
+			/* Footer Contact Alignment */
+			.split.contact {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 2em; /* Increased for more spacing between sections */
+				max-width: 300px;
+				margin: 0 auto;
+				padding: 1em 0; /* Add padding for better spacing */
+			}
+			.split.contact section {
+				width: 100%;
+				margin-bottom: 1em; /* Space below each section */
+			}
+			.split.contact h3 {
+				margin-bottom: 0.75em; /* Space between title and content */
+				color: #333;
+				font-size: 1.2em;
+			}
+			.split.contact p,
+			.split.contact a {
+				margin: 0;
+				color: #555;
+				line-height: 1.5; /* Improve readability */
+			}
+			.split.contact p br {
+				margin-bottom: 0.5em; /* Space for line breaks in Location */
+			}
+			.split.contact .icons.alt {
+				display: flex;
+				gap: 1em; /* Space between social icons */
+			}
 		</style>
 	</head>
 	<body class="is-preload">
-
 		<!-- Wrapper -->
 		<div id="wrapper" class="fade-in">
-
 			<!-- Intro -->
 			<div id="intro">
-				<h1>Damaris Chege Portfolio</h1>
-				<p>I’m Damaris Chege, a passionate data analyst at Macheo Children Organisation, transforming complex data into actionable insights. With expertise in SQL, Python, Power BI, and Excel, I build automated reporting systems and interactive dashboards that drive efficiency and empower data-driven decisions.</p>
+				<h1>Damaris Chege Portfolio<br /></h1>
+				<p>I don’t just see numbers, I see the stories they’re desperate to tell. In a world drowning in data, I specialize in surfacing the patterns that others overlook, translating chaos into insight, and turning raw figures into strategies that actually move the needle. My experience spans analyzing tens of thousands of client records, building dashboards that uncover hidden trends, and designing data solutions that empower teams to make decisions with confidence. I treat data not as spreadsheets, but as a map to untapped opportunities.</p>
 				<ul class="actions">
 					<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 				</ul>
@@ -91,7 +222,7 @@
 
 			<!-- Main -->
 			<div id="main">
-				<!-- Featured Project Example -->
+				<!-- Featured Post -->
 				<article class="post featured">
 					<header class="major">
 						<h2>
@@ -99,7 +230,11 @@
 								Automated Donor/Stakeholder Reporting System
 							</a>
 						</h2>
-						<p>Automated the creation of donor reports by integrating Monday.com project updates with OneDrive Excel data, delivering scheduled, customized reports through Azure. Reduced manual reporting time and improved donor transparency.</p>
+						<p>
+							Automated the creation of donor reports by integrating Monday.com project updates 
+							with OneDrive Excel data, delivering scheduled, customized reports through Azure. 
+							This reduced manual reporting time and improved donor transparency.
+						</p>
 						<p><strong>Technologies:</strong> Python | OneDrive | Monday.com API | Azure</p>
 					</header>
 					<a href="https://gist.github.com/damarischege47/d0f45d700e6cc8c46ea13f17546e7dcc" class="image main"><img src="images/PYTHON.jpg" alt="" /></a>
@@ -108,17 +243,22 @@
 						<summary><strong>Project Story</strong> ▶</summary>
 						<div class="project-story">
 							<h3>Problem</h3>
-							<p>The reporting process was chaotic and slow. Communications had to collect data manually from multiple sources — coordinators, fundraising, and finance — just to compile a single donor report.</p>
+							<p>The reporting process was chaotic and slow. The communications department had to collect data manually from multiple sources — coordinators, fundraising, and finance — just to compile a single donor report. Each intervention team (education, nutrition, family strengthening, etc.) stored their progress updates separately on Monday.com, while financial allocations lived in Excel or QuickBooks. As a result, donor updates were delayed or forgotten altogether, especially for long-term donors whose contributions went back years.</p>
+							
 							<h3>Context</h3>
-							<p>Teams often disagreed about which clients, families, or interventions were funded by which donor. A single automated system was needed to extract updates, merge them with financial and donor data, and produce ready-to-send reports.</p>
+							<p>Because reports depended on manual coordination across departments, teams often disagreed about which clients, families, or interventions were funded by which donor. The lack of centralized visibility caused missed deadlines, inconsistent narratives, and a constant blame game between teams. The organization needed a single automated system that could extract intervention updates, merge them with financial and donor data, and produce clean, ready-to-send reports — without human follow-up.</p>
+							
 							<h3>Action</h3>
 							<ul>
-								<li>Designed a Python pipeline connecting to Monday.com's API to fetch tasks.</li>
-								<li>Downloaded subitems, cleaned and merged them into a predefined report template using python-docx.</li>
-								<li>Automated email delivery via Gmail SMTP and centralized reports in one repository.</li>
+								<li>Designed and implemented a Python automation pipeline that directly connects to Monday.com's API to fetch the latest "Report-M&E Experiment" tasks from all intervention boards.</li>
+								<li>Programmed the system to automatically download subitems (text, Word files, and images), clean and standardize them, and merge everything into a predefined donor report template using python-docx.</li>
+								<li>Integrated email automation through Gmail's SMTP to instantly deliver completed reports to the communications and donor relations teams.</li>
+								<li>Added error handling, timestamped file naming, and pagination logic to ensure scalability across 20+ boards and thousands of subitems.</li>
+								<li>Centralized all generated reports in one repository, replacing the fragmented folder system used by departments.</li>
 							</ul>
+							
 							<h3>Result</h3>
-							<p>Donor reports that took 3–5 days are now generated in under 10 minutes, eliminating inconsistencies and missed updates.</p>
+							<p>Completely eliminated manual report compilation across departments. Donor reports that used to take 3–5 days are now automatically generated and sent in under 10 minutes. Data inconsistencies and missed donors dropped to zero — every intervention update is now accounted for. The automation brought new transparency to donor tracking, reduced interdepartmental blame, and gave managers clear visibility into which families were supported, by which donor, and in which intervention. Impact review meetings became smoother and more data-driven, as dashboards and reports were available in real time.</p>
 						</div>
 					</details>
 					
@@ -127,27 +267,136 @@
 					</ul>
 				</article>
 
+				<!-- Posts -->
+				<section class="posts">
+					<article>
+						<header>
+							<h2><a href="https://github.com/damarischege47/balance_sheet_automation">QuickBooks → Excel Automation Tool</a></h2>
+						</header>
+						<a href="https://github.com/damarischege47/balance_sheet_automation" class="image fit"><img src="images/QUICKBOKKS.png" alt="" /></a>
+						<p>Built an automated QuickBooks → Excel integration tool that dynamically updates multiple balance sheet schedules in real-time using the QuickBooks API and Excel automation.</p>
+						<p><strong>Technologies:</strong> Python | QuickBooks API | openpyxl | requests</p>
+						
+						<details>
+							<summary><strong>Project Story</strong> ▶</summary>
+							<div class="project-story">
+								<h3>Problem</h3>
+								<p>Finance teams at Macheo were manually downloading trial balances and journal entries from QuickBooks and updating more than eight separate Excel balance sheet schedules — for debtors, creditors, prepaid expenses, and cash accounts. This repetitive manual process was error-prone, time-consuming, and often caused version control issues when multiple staff edited the same workbook.</p>
+								
+								<h3>Context</h3>
+								<p>The finance department needed a reliable automation process that could connect directly to QuickBooks, pull journal entries in real-time, and update Excel schedules automatically — without breaking links, overwriting data, or requiring technical intervention from staff.</p>
+								
+								<h3>Action</h3>
+								<ul>
+									<li>Developed a fully automated QuickBooks → Excel integration tool using Python, requests, and openpyxl.</li>
+									<li>Built a secure OAuth 2.0 token refresh pipeline that retrieves live journal entries from the QuickBooks API.</li>
+									<li>Parsed over 10,000+ journal entry lines per batch using pagination logic, mapped each transaction to the correct Excel sheet (debtors, creditors, prepaid, etc.), and updated the appropriate month column dynamically.</li>
+									<li>Added robust data normalization logic (handling overspends, refunds, and change transactions) and auto-appended missing staff or account entries.</li>
+									<li>Implemented detailed logging and error-handling for full traceability and integrated with Windows Task Scheduler for unattended daily execution.</li>
+								</ul>
+								
+								<h3>Result</h3>
+								<p>Eliminated manual data entry across all balance sheet schedules. Financial data now updates automatically each day with zero user input. Month-end report preparation time dropped by over 80%, version errors were eliminated, and accountants can now reconcile all schedules directly from QuickBooks data with full audit transparency.</p>
+							</div>
+						</details>
+						
+						<ul class="actions special">
+							<li><a href="https://github.com/damarischege47/balance_sheet_automation" class="button">View project</a></li>
+						</ul>
+					</article>
+					
+					<article>
+						<header>
+							<h2><a href="#">Power BI Data Centralization Dashboard</a></h2>
+						</header>
+						<a href="#" class="image fit"><img src="images/Screenshot 2025dashboard.png" alt="" /></a>
+						<p>Built a centralized Power BI semantic model integrating Azure SQL and Excel sources with automated ETL, row-level security, and real-time dashboards for 30,000+ clients.</p>
+						
+						<details>
+							<summary><strong>Project Story</strong> ▶</summary>
+							<div class="project-story">
+								<h3>Problem</h3>
+								<p>Each intervention (Education, Nutrition, Family Strengthening, etc.) maintained separate Excel workbooks and SQL tables with inconsistent client identifiers and reporting formats. Manual merging created constant data conflicts, missing client histories, and contradictory donor figures. Coordination between departments broke down, and accountability for client outcomes became unclear.</p>
+								
+								<h3>Context</h3>
+								<p>Leadership needed a unified, self-refreshing reporting system to consolidate intake, exit, donor, and staff data in one view. The goal was to eliminate manual updates, improve cross-department visibility, and support data-driven impact meetings for over 30,000 clients.</p>
+								
+								<h3>Action</h3>
+								<ul>
+									<li>Built a centralized Power BI semantic model integrated with Azure SQL and controlled Excel sources.</li>
+									<li>Used Power Query for ETL logic—standardizing column formats, merging duplicate records, and establishing consistent relationships across donor, client, and intervention dimensions.</li>
+									<li>Configured hybrid refresh pipelines combining DirectQuery (for live SQL data) with scheduled imports (for Excel-based datasets) through the Power BI Gateway.</li>
+									<li>Implemented row-level security (RLS) and synchronized refresh schedules via the Power BI Service.</li>
+									<li>Created DAX measures to calculate exit success rates, active client counts, and intervention-level KPIs, allowing dynamic filtering by donor, region, and social worker.</li>
+								</ul>
+								
+								<h3>Result</h3>
+								<p>Delivered a fully automated Power BI reporting environment, replacing manual consolidation with real-time, validated dashboards. Report refresh success rose from 60% to 100%, accuracy improved by 90%, and interdepartmental blame over client ownership was eliminated. Coordinators and directors now hold smooth, data-driven impact meetings where visual insights highlight underperforming areas and families needing targeted support.</p>
+							</div>
+						</details>
+						
+						<ul class="actions special">
+							<li><a href="#" class="button">Request Access</a></li>
+						</ul>
+					</article>
+					
+					<article>
+						<header>
+							<h2><a href="https://github.com/damarischege47/_AdventureWorksDW2022_EDA">Exploratory Data Analysis (EDA) with SQL</a></h2>
+						</header>
+						<a href="https://github.com/damarischege47/_AdventureWorksDW2022_EDA" class="image fit"><img src="images/_SQL.jpg" alt="" /></a>
+						<p>Conducted SQL analysis on the AdventureWorksDW2022 data warehouse to uncover customer behavior, product performance, and revenue trends using cohort analysis and RFM segmentation.</p>
+						<p><strong>Technologies:</strong> SQL Server | AdventureWorksDW2022 | T-SQL | Window Functions | Joins | Aggregations</p>
+						
+						<details>
+							<summary><strong>Project Story</strong> ▶</summary>
+							<div class="project-story">
+								<h3>Problem</h3>
+								<p>The company’s historical sales, customer, and product data were scattered across multiple tables in the AdventureWorksDW2022 data warehouse. Analysts lacked a clear understanding of customer behavior, product performance, and revenue trends, which slowed decision-making and limited actionable insights. Manual analysis was error-prone and inefficient due to the sheer volume of data.</p>
+								
+								<h3>Context</h3>
+								<p>Leadership wanted to identify high-value customers, understand buying patterns, and detect product performance trends to optimize marketing and inventory. The challenge was to provide a comprehensive, repeatable analysis that could be used to inform business strategy without manual aggregation of tables or errors from inconsistent joins.</p>
+								
+								<h3>Action</h3>
+								<ul>
+									<li>Conducted a full exploratory data analysis using SQL, joining multiple fact and dimension tables.</li>
+									<li>Calculated key metrics like revenue, order counts, and average order values at customer, product, and geography levels.</li>
+									<li>Applied cohort analysis to track customer retention over time and used RFM (Recency, Frequency, Monetary) segmentation to identify top-performing customers.</li>
+									<li>Leveraged SQL window functions for ranking, partitioning, and trend analysis to uncover patterns in product sales and seasonal behaviors.</li>
+									<li>Created reusable queries and visual summaries for management, reducing time for future analyses.</li>
+								</ul>
+								
+								<h3>Result</h3>
+								<p>Delivered actionable insights on customer segments, top-selling products, and seasonal revenue fluctuations. Identified high-value customers and opportunities for cross-selling. Enabled data-driven marketing and sales strategies based on solid historical evidence. Saved analysts significant time by creating a set of reusable, standardized SQL queries for ongoing reporting.</p>
+							</div>
+						</details>
+						
+						<ul class="actions special">
+							<li><a href="https://github.com/damarischege47/_AdventureWorksDW2022_EDA" class="button">View project</a></li>
+						</ul>
+					</article>
+				</section>
+
 				<!-- Testimonials Section -->
 				<section id="testimonials">
 					<h2>What Colleagues Say</h2>
 					<div class="testimonial-grid">
 						<div class="testimonial">
-							<p>"Damaris created exceptional Power BI dashboards for our organization, significantly enhancing our decision-making process."</p>
+							<p>"Damaris did an amazing job in creating dashboards in our organization using Power BI, this has enhanced our decision making leading to efficiency and data-driven decisions in our organization."</p>
 							<div class="testimonial-author">
-								<img src="https://via.placeholder.com/50x50" alt="Julie Karwitha" class="testimonial-avatar">
+								<img src="https://via.placeholder.com/50x50/007acc/ffffff?text=JK" alt="Julie K." class="testimonial-avatar">
 								<div>
-									<div><a href="https://www.linkedin.com/in/karwitha-wanjiru-julie-msc-cpa-k-a13a8133/" target="_blank">Julie Karwitha</a></div>
+									<div>Julie Karwitha</div>
 									<div class="testimonial-role">Needs Assessment and Impact Evaluation Manager, Macheo Children Organisation</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<p class="testimonial-placeholder">Have feedback? Share your experience working with me below!</p>
 
 					<!-- Testimonial Submission Form -->
 					<div class="testimonial-form">
 						<h3>Share Your Feedback</h3>
-						<form id="testimonial-form" action="https://formspree.io/f/xrbyawvl" method="POST" onsubmit="handleFormSubmit(event)">
+						<form action="https://formspree.io/f/xrbyawvl" method="POST">
 							<label for="name">Name *</label>
 							<input type="text" id="name" name="name" required placeholder="Your full name">
 							<label for="role">Role/Title *</label>
@@ -156,14 +405,6 @@
 							<input type="text" id="company" name="company" placeholder="E.g., Macheo">
 							<label for="linkedin">LinkedIn URL (Optional)</label>
 							<input type="url" id="linkedin" name="linkedin" placeholder="E.g., https://linkedin.com/in/username">
-							<label for="project">Project (Optional)</label>
-							<select id="project" name="project">
-								<option value="">Select a project (optional)</option>
-								<option value="Automated Donor Reporting">Automated Donor Reporting</option>
-								<option value="QuickBooks Automation">QuickBooks → Excel Automation</option>
-								<option value="Power BI Dashboard">Power BI Dashboard</option>
-								<option value="SQL EDA">SQL EDA (AdventureWorks)</option>
-							</select>
 							<label for="testimonial">Testimonial *</label>
 							<textarea id="testimonial" name="testimonial" required placeholder="Share your experience working with me"></textarea>
 							<input type="hidden" name="_subject" value="New Testimonial Submission for Damaris Chege Portfolio">
@@ -198,6 +439,10 @@
 					</section>
 				</footer>
 
+				<!-- Copyright -->
+				<div id="copyright">
+					<ul><li>&copy; Damaris Chege</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+				</div>
 			</div>
 
 			<!-- Scripts -->
@@ -208,29 +453,25 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<!-- Fix for removing is-preload class -->
 			<script>
-				function handleFormSubmit(event) {
-					event.preventDefault();
-					const form = event.target;
-					fetch(form.action, {
-						method: form.method,
-						body: new FormData(form),
-						headers: { 'Accept': 'application/json' }
-					}).then(response => {
-						if (response.ok) {
-							alert('Thank you for your testimonial! Your feedback has been submitted.');
-							form.reset();
-						} else {
-							console.error('Form submission failed:', response.status, response.statusText);
-							alert('Error submitting form. Please check the Formspree endpoint and try again.');
-						}
-					}).catch(error => {
-						console.error('Network error:', error);
-						alert('Network error. Please check your connection and try again.');
-					});
-				}
+				document.addEventListener('DOMContentLoaded', function() {
+					document.body.classList.remove('is-preload');
+				});
 			</script>
-
-		</div>
-	</body>
+			<!-- Fix for smooth scrolling to anchor links -->
+			<script>
+				$(document).ready(function() {
+					$('a[href*="#"]').on('click', function(event) {
+						event.preventDefault(); // Prevent default anchor jump
+						var target = $(this.hash); // Get target element (e.g., #testimonials)
+						if (target.length) { // Check if target exists
+							$('html, body').animate({
+								scrollTop: target.offset().top - 120 // Adjust for fixed header
+							}, 800); // Smooth scroll over 800ms
+						}
+					});
+				});
+			</script>
+		</body>
 </html>
